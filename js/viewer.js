@@ -25,11 +25,12 @@ $('.inputRoomId').val(channelId);
 ////////////            function             ////////////
 ////////////////////////////////////////////////////////
 
-let giftDraw = (giftId, count, senderName) => {
+let giftDraw = (giftId, count, senderName, message) => {
     let giftName = 'unknown gift name';
     let giftPrice = 0;
     let giftUrl = 'https://';
     let giftPoint = 1;
+    if(!message) message = '';
     if(!count) count = 1;
     
     giftList.forEach(function(val){
@@ -41,8 +42,9 @@ let giftDraw = (giftId, count, senderName) => {
         }
     });
     
-    drawArea.append('<div class="chat gift">'+senderName+'さんが'+giftName+'('+giftPrice+'pt)を贈りました。x'+count+'</div>');
-    speechText(senderName+'さんが'+giftName+'を贈りました。', 'gift');
+    
+    drawArea.append('<div class="chat gift">'+senderName+'さんからエールが届きました。'+message+'('+giftPrice+'yells)</div>');
+    speechText(senderName+'さんからエールが届きました。'+message, 'gift');
     statusCheck();
 }
 

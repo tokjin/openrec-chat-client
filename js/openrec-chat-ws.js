@@ -147,6 +147,7 @@ class Comment {
       this.is_warned = json.is_warned;
       this.is_moderator = json.is_moderator;
       this.is_premium = json.is_premium;
+      this.is_official = json.is_official;
       this.is_authenticated = json.is_authenticated;
       this.user_icon = json.user_icon;
       this.user_color = json.user_color;
@@ -158,16 +159,17 @@ class Comment {
     push(){
         let svgUrlBase = 'https://dqd0jw5gvbchn.cloudfront.net/tv/v8.11.0/static/svg/commons';
         if(this.stamp) this.message = '<img src="'+this.stamp.image_url+'" class="stamp">';
+        if(this.is_official) this.user_name += '<img src="'+svgUrlBase+'/official.svg" class="mark">';
+        if(this.is_premium) this.user_name += '<img src="'+svgUrlBase+'/premium.svg" class="mark">';
+        if(this.is_moderator) this.user_name += '<img src="'+svgUrlBase+'/moderator.svg" class="mark">';
         if(this.is_fresh) this.user_name += '<img src="'+svgUrlBase+'/begginer.svg" class="mark">';
         if(this.is_warned) this.user_name += '<img src="'+svgUrlBase+'/warned.svg" class="mark">';
-        if(this.is_moderator) this.user_name += '<img src="'+svgUrlBase+'/moderator.svg" class="mark">';
-        if(this.is_premium) this.user_name += '<img src="'+svgUrlBase+'/premium.svg" class="mark">';
         
         chatDraw(this.message, this.user_name, this.user_icon, this.user_color)
         // debug
         if(this.yell) {
             console.log('[YELL]', this);
-            // giftDraw(giftId, count, senderName)
+            giftDraw(this.yell.yell_id, 1, this.user_name, this.message)
         }
         return;
     }

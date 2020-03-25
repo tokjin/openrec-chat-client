@@ -10,26 +10,27 @@ let renderText = [];
 ////////////            function             ////////////
 ////////////////////////////////////////////////////////
 
-let giftDraw = (giftId, count, senderName) => {
+let giftDraw = (giftId, count, senderName, message) => {
     let giftName = 'unknown gift name';
     let giftPrice = 0;
     let giftUrl = 'https://';
     let giftCategory = 1;
+    if(!message) message = '';
     if(!count) count = 1;
     
-    giftList.forEach(function(val){
-        if(giftId == val.gift_id){
+    giftList.forEach((val) => {
+        if(giftId == val.id){
             giftName = val.name;
-            giftPrice = val.price;
-            giftUrl = val.pic;
-            giftCategory = val.category;
+            giftPrice = val.yells;
+            giftUrl = val.image_url;
+            giftPoint = val.points;
         }
     });
     
-    if(giftNoticeFeederMode) renderText.unshift({'text': senderName+'さんが'+giftName+'を贈りました。x'+count, 'type': 'gift'});
+    if(giftNoticeFeederMode) renderText.unshift({'text': senderName+'さんからエールが届きました。'+giftPrice+'yells', 'type': 'gift'});
     if(!giftNoticeMode) return;
     if(giftNoticeSound) $('#soundGift').get(0).play();
-    if(giftCategory == 3) count *= 15;
+    //if(giftCategory == 3) count *= 15;
     
     [...Array(count)].map(() => { // 指定回数繰り返し
         let randId = 'gift'+randText('Int', 8);
