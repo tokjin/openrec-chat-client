@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="css/viewer.css" rel="stylesheet" />
+    <title>openrec chat viewer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="Header">
+        <span class="HeaderLeft">
+            openrec.tv/user/
+            <input type="text" placeholder="" value="" class="inputRoomId">
+            <a href="#" id="startBtn" class="btn-flat-border">START</a>
+            <a href="#" id="stopBtn" class="btn-flat-border" style="display: none;">STOP</a>
+            <span id="viewCount" class="viewCountArea"></span>
+        </span>
+        
+        <span class="HeaderRight">
+            <span class ="label-area">
+            <label><input id="chkComment" class="chkbx" type="checkbox"><span class="chkbx-parts">コメント</span></label>
+            
+            <label><input id="chkGift" class="chkbx" type="checkbox"><span class="chkbx-parts">エール</span></label>
+            
+            <label><input id="chkSpeak" class="chkbx" type="checkbox"><span class="chkbx-parts">読み上げ</span></label>
+                
+            <label><input id="chkScroll" class="chkbx" type="checkbox" checked><span class="chkbx-parts">スクロール</span></label>
+                
+            </span>
+        </span>
+    </div>
+    
+    <div class="adArea">
+        <a target="_blank" href="https://www.amazon.co.jp/b?_encoding=UTF8&tag=about001-22&linkCode=ur2&linkId=d7e89984354b4e1c51137ac75fc1b1c3&camp=247&creative=1211&node=637394" style="color: gainsboro;">[Amazon広告] クリックで消えます</a>
+    </div>
+
+    <div class="drawArea"></div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="setting.js"></script>
+    <script src="js/openrec-chat-ws.js"></script>
+    <script src="js/viewer.js"></script>
+</body>
+</html>

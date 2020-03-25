@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&subset=japanese');
+
+/* OPENRECのダークモードに対応 */
+/*
+html {
+    background-color: #161422;
+}
+.chat {
+    color: white;
+    background-color: #333045;
+}
+#name {
+    color: initial;
+}
+*/
+
+img.mark {
+    width: 20px;
+}
+
+.drawArea {
+    padding-top: 32px;
+    position: absolute;
+    left: 0px;
+    width: 100%;
+}
+
+.chat {
+    border-top: 1px solid #999;
+    font-family: 'Noto Sans JP';
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #DDDDDD;
+    padding-left: 10px;
+}
+
+#name {
+    /* ダークモードの場合は↓color削除 */
+    color: black !important;
+    width: 340px;
+    display: table-cell;
+}
+
+#text {
+    display: table-cell;
+    padding-left: 8px;
+}
+
+.iconSize {
+    height: 32px;
+}
+
+.gift {
+    background-color: #f5a0fc;
+}
+
+.notice {
+    background-color: #6ab4ff;
+}
+
+.debug {
+    background-color: #ffffff;
+    font-size: 12px;
+}
+
+.onAdd {
+    background-color: #c8dcef;
+}
+
+.Header {
+	color: white;
+    font-family: 'Noto Sans JP';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 30px;
+	padding: 5px;
+	background-color: rgba(51, 51, 51, .85);
+	z-index: 3;
+}
+
+.HeaderLeft {
+	left: 10px;
+	position: fixed;
+}
+
+.HeaderRight {
+	right: 10px;
+	position: fixed;
+}
+
+.chkbx {
+	display: none;
+}
+
+.chkbx-parts {
+	position: relative;
+	padding: 3px 5px 3px 45px;
+	transition: .3s;
+	border-radius: 5px;
+	display: inline-block;
+	line-height: 1;
+}
+
+.chkbx:checked+.chkbx-parts {
+	color: #b4e2ff;
+}
+
+.chkbx-parts::before {
+	content: "";
+	display: block;
+	left: 9px;
+	width: 30px;
+	height: 15px;
+	border-radius: 15px;
+	border: 1px solid #aaa;
+	background: #fff;
+	position: absolute;
+}
+
+.chkbx-parts::after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 5px;
+	left: 11px;
+	width: 13px;
+	height: 13px;
+	background: #aaa;
+	border-radius: 50%;
+	transition: .2s;
+	display: block;
+}
+
+.chkbx:checked+.chkbx-parts::before {
+	border: 1px solid #3dabef;
+}
+
+.chkbx:checked+.chkbx-parts::after {
+	left: 26px;
+	background: #3dabef;
+}
+
+.inputRoomId {
+	width: 96px;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: none;
+	border-bottom: 1px solid white;
+	background: transparent;
+}
+
+.inputRoomId:focus {
+	border-bottom: 2px solid #67c5ff;
+	outline: none;
+}
+
+.btn-flat-border {
+	display: inline-block;
+	padding: 0.1em 0.3em;
+	text-decoration: none;
+	border-radius: 3px;
+	transition: .4s;
+	color: white;
+    font-size: 14px;
+}
+
+#startBtn {
+	border: solid 1px #3dabef;
+	background: #3dabef;
+}
+
+#startBtn:hover {
+	background: white;
+	color: #3dabef;
+}
+
+#stopBtn {
+	border: solid 1px #ff555e;
+	background: #ff555e;
+}
+
+#stopBtn:hover {
+	background: white;
+	color: #ff555e;
+}
+
+img.stamp {
+    width: 60px;
+    margin-bottom: -10px;
+}
+
+.adArea {
+    left: 310px;
+    position: fixed;
+    font-size: 12px;
+    top: 10px;
+    font-weight: bold;
+    z-index: 9999;
+}
