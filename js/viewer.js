@@ -5,11 +5,8 @@
 const drawArea = $('.drawArea');
 let chkbxSpeakStatus, chkbxGiftStatus, chkbxCommentStatus;
 let chkbxScrollStatus = true;
+let displayCommentCount = 0;
 
-if(chatNoticeMode){
-    $('#chkComment').prop('checked', true);
-    chkbxCommentStatus = true;
-}
 if(giftNoticeMode){
     $('#chkGift').prop('checked', true);
     chkbxGiftStatus = true;
@@ -20,6 +17,7 @@ if(speechMode){
 }
 
 $('.inputRoomId').val(channelId);
+$('#versionArea').text(currentVer);
 
 /////////////////////////////////////////////////////////
 ////////////            function             ////////////
@@ -49,6 +47,12 @@ let giftDraw = (giftId, count, senderName, message) => {
 }
 
 let chatDraw = (text, name, img, color) => {
+    displayCommentCount++;
+    if(displayCommentCount >= viewerMaxLine) {
+        displayCommentCount = 1;
+        drawArea.empty();
+        drawArea.append('<div class="chat notice">チャット欄をリセットしました。</div>');
+    }
     if(!color) color = "black";
     speechText(text, 'comment');
     

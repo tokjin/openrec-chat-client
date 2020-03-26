@@ -3,13 +3,15 @@
 ////////////////////////////////////////////////////////
 
 let ws, socket, onairTitle, giftList;
-let handshakeLoop;
+let handshakeLoop, getMovieIdLoop;
 
 /////////////////////////////////////////////////////////
 ////////////            function             ////////////
 ////////////////////////////////////////////////////////
 
 let startConnect = () => {
+    noticeDraw('放送が始まるのを待機しています...', 'viewerOnly');
+    
     getMovieId().done((json) => {
         let onairId;
         json.forEach((val) => {
@@ -18,10 +20,12 @@ let startConnect = () => {
                 onairTitle = val.title;
             }
         });
-        if(onairId) wsConnect(onairId);
-        else {
+        if(onairId) {
+            wsConnect(onairId);
+            
+        } else {
             console.log('getMovieId success(not onair)');
-            setTimeout(startConnect, 7000);
+            getMovieIdLoop = setTimeout(startConnect, 7000);
         }
     }).fail(() => { console.log('getMovieId failed'); });
 }
@@ -146,16 +150,19 @@ let wsConnect = (id) => {
     ws.onclose = (e) => { onClose(e) };
     ws.onmessage = (e) => { onMessage(e) };
     ws.onerror = (e) => { onError(e) };
-    
 }
 
 let wsDisconnect = () => {
-    ws.close()
+    try { ws.close(); }
+    catch(e) {}
+    
+    try { clearTimeout(getMovieIdLoop); }
+    catch(e) {}
 }
 
 let onOpen = (e) => {
     console.log('CONNECTED');
-    noticeDraw('[接続] '+onairTitle+'('+currentVer+')', 'open');
+    noticeDraw('[接続] '+onairTitle, 'open');
     handshakeLoop = setInterval(handshake, 25000)
 }
 
@@ -200,7 +207,6 @@ let onMessage = (e) => {
                 // 生放送が終了
                 console.log('live end');
                 wsDisconnect();
-                setTimeout(startConnect, 10000);
                 
             } else if (json.type == 10) {
                 // 放送タイプ(public_type)
