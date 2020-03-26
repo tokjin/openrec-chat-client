@@ -38,6 +38,9 @@ const userIcon = getParam('userIcon') || true;
 // コメントがこれ以上溜まり過ぎた時に重くならないように自動で削除
 const viewerMaxLine = getParam('viewerMaxLine') || 1000;
 
+// デモモード
+const demoMode = getParam('demoMode') || false;
+
 const giftNoticeFeederMode = true;  // ギフトが来た時に画面下に速報を出すかどうか
 const followerNoticeMode = true;    // フォロー通知を出すかどうか
 const followerNoticeSound = true;   // フォロー通知の際にサウンドを再生していいか
