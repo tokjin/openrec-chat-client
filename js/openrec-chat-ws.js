@@ -127,13 +127,27 @@ let chatTest = (name, text, stamp, yell) => {
     messageJson.push();
 }
 
+let demoModeStart = () => {
+    let demoYell=0, demoStamp=0;
+    let demoTexts = ["こんにちは","こんばんは","こんにちわ～","おじゃまします","やっほー","こんばんわ","今日は何のゲーム？","888888","うまい！","調子いいですね","今日は早いですね","めっちゃ早口だw","wwww","わろた","草","さすがに草","面白いですね","初見","初見です","やあやあ","はじめまして","おー","なるほど","これはすごい","ぬるぽ","テスト","コメント流れてる","てすとてすと","ツイッターもフォローしました","チャンネル登録しました","おばんどす","どうもありがとうございました。","おつかれさまです","おつかれさまでした","おつかれした",];
+    let demoText = demoTexts[Math.floor(Math.random() * demoTexts.length)];
+    let rnd = Math.floor(Math.random() * 100);
+    if(rnd >= 97) demoYell = 179;
+    else if(rnd >= 86) demoStamp = 1;
+    
+    chatTest('なまえ', demoText, demoStamp, demoYell);
+    
+    let rnd2 = Math.floor(Math.random() * 1000);
+    setTimeout(demoModeStart, rnd2);
+}
+
 /////////////////////////////////////////////////////////
 ////////////            メイン処理            ////////////
 ////////////////////////////////////////////////////////
 
 $(document).ready(function () {
     updateGiftList();
-    
+    if(demoMode) demoModeStart();
     $(window).on("beforeunload", (e) => { wsDisconnect() });
 });
 
@@ -259,14 +273,14 @@ class Comment {
 
     push(){
         let svgUrlBase = 'https://dqd0jw5gvbchn.cloudfront.net/tv/v8.11.0/static/svg/commons';
-        if(this.stamp) this.message = '<img src="'+this.stamp.image_url+'" class="stamp">';
         if(this.user_type == '1') this.user_name += '<img src="'+svgUrlBase+'/official.svg" class="mark">';
         if(this.is_premium) this.user_name += '<img src="'+svgUrlBase+'/premium.svg" class="mark">';
         if(this.is_moderator) this.user_name += '<img src="'+svgUrlBase+'/moderator.svg" class="mark">';
         if(this.is_fresh) this.user_name += '<img src="'+svgUrlBase+'/begginer.svg" class="mark">';
         if(this.is_warned) this.user_name += '<img src="'+svgUrlBase+'/warned.svg" class="mark">';
         
-        if(this.yell) giftDraw(this.yell.yell_id, 1, this.user_name, this.message);
+        if(this.stamp) chatDraw('<img src="'+this.stamp.image_url+'" class="stamp">', this.user_name, this.user_icon, this.user_color, true);
+        else if(this.yell) giftDraw(this.yell.yell_id, 1, this.user_name, this.message);
         else chatDraw(this.message, this.user_name, this.user_icon, this.user_color);
         
         return;

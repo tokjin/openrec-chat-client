@@ -53,13 +53,15 @@ let giftDraw = (giftId, count, senderName, message) => {
     
 }
 
-let chatDraw = (text, name, iconUrl, color) => {
+let chatDraw = (text, name, iconUrl, color, stamp) => {
     let colorText = '';
     if(chatColorMode) colorText = 'color: '+color+' !important;';
     
     let randId = 'chat'+randText('Int', 8);
     let randHeight = Math.random() * 1000;
-    if(text.length >= chatLengthMax) text = text.substr(0, chatLengthMax-2)+'...';
+    if(!stamp){
+        if(text.length >= chatLengthMax) text = text.substr(0, chatLengthMax-2)+'...';
+    }
 
     if(chatInUserName) text = text + '@' + name
     let insertTag = '<div id="'+randId+'" class="chat" style="display: none; left: 1920px; top: '+randHeight+'px;'+colorText+'">'+text+'</div>';
