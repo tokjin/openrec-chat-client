@@ -55,7 +55,6 @@ let giftDraw = (giftId, count, senderName, message) => {
 
 let chatDraw = (text, name, iconUrl, color) => {
     let colorText = '';
-    if(!chatNoticeMode) return;
     if(chatColorMode) colorText = 'color: '+color+' !important;';
     
     let randId = 'chat'+randText('Int', 8);
@@ -73,7 +72,8 @@ let chatDraw = (text, name, iconUrl, color) => {
 }
 
 let noticeDraw = (text, type) => {
-    renderText.unshift({'text': text, 'type': type});
+    if(type == 'viewerOnly') return;
+    else renderText.unshift({'text': text, 'type': type});
 }
 
 let onAddDraw = (name) => {
