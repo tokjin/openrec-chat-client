@@ -27,24 +27,26 @@ let giftDraw = (giftId, count, senderName, message) => {
         }
     });
     
-    if(giftNoticeFeederMode) renderText.unshift({'text': senderName+'さんからエールが届きました。'+giftPrice+'yells', 'type': 'gift'});
+    if(giftNoticeFeederMode) renderText.unshift({'text': senderName+': '+message+'('+giftPrice+'yell)', 'type': 'gift'});
     if(!giftNoticeMode) return;
     if(giftNoticeSound) $('#soundGift').get(0).play();
     //if(giftCategory == 3) count *= 15;
     
     [...Array(count)].map(() => { // 指定回数繰り返し
         let randId = 'gift'+randText('Int', 8);
-        let randWidth = Math.random() * 1800;
-        let randHeight = -(Math.random() * 500 + 50);
+        let randWidth = Math.random() * 1000 + 0;
+        let randHeight = Math.random() * 500 + 1280;
         let giftSpeedFix = giftSpeed + (Math.random() * 2500);
         
-        let insertTag = '<img src="'+giftUrl+'" id="'+randId+'" class="gift" style="top: '+randHeight+'px; left: '+randWidth+'px;">';
+        let insertTag = '<img src="'+giftUrl+'" id="'+randId+'" class="gift" style="bottom: '+randHeight+'px; left: '+randWidth+'px;">';
         $('.giftArea').append(insertTag);
 
         $('#'+randId).css('display','block');
-        $('#'+randId).animate({ top: 975 }, giftSpeedFix, 'swing', function () {
-            $('#'+randId).animate({ top: 975 }, 3000, 'swing', function () {
-                $('#'+randId).remove();
+        $('#'+randId).animate({ bottom: -20 }, giftSpeedFix, 'swing', function () {
+            $('#'+randId).animate({ bottom: -20 }, 4000, 'swing', function () {
+                $('#'+randId).fadeOut(500, function () {
+                    $('#'+randId).remove();
+                });
             });
         });
     })
@@ -86,7 +88,7 @@ let requestTextillate = (d) => {
     notificationArea.css('left', '110%');
     notificationArea.text(d.text);
     notificationArea.css('display', 'block');
-    let goalLeft = 280;
+    let goalLeft = 20;
     
     notificationArea.animate({ left: goalLeft }, 1000, 'swing', function () {
         if(followerNoticeSound) {

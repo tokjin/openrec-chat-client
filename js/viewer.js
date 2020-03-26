@@ -33,7 +33,7 @@ let giftDraw = (giftId, count, senderName, message) => {
     if(!message) message = '';
     if(!count) count = 1;
     
-    giftList.forEach(function(val){
+    giftList.forEach((val) => {
         if(giftId == val.id){
             giftName = val.name;
             giftPrice = val.yells;
@@ -43,15 +43,13 @@ let giftDraw = (giftId, count, senderName, message) => {
     });
     
     
-    drawArea.append('<div class="chat gift">'+senderName+'さんからエールが届きました。'+message+'('+giftPrice+'yells)</div>');
+    drawArea.append('<div class="chat gift">[エール] '+senderName+' '+message+'('+giftPrice+'yells)</div>');
     speechText(senderName+'さんからエールが届きました。'+message, 'gift');
     statusCheck();
 }
 
 let chatDraw = (text, name, img, color) => {
     if(!color) color = "black";
-    let stickerPattern = /\[\/[+-]?\d+\]/g;
-    let hitText = text.match(stickerPattern);
     speechText(text, 'comment');
     
     let insertTag = '';
