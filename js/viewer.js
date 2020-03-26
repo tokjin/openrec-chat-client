@@ -3,8 +3,9 @@
 ////////////////////////////////////////////////////////
 
 const drawArea = $('.drawArea');
-let chkbxSpeakStatus, chkbxGiftStatus, chkbxCommentStatus;
+let chkbxSpeakStatus, chkbxGiftStatus;
 let chkbxScrollStatus = true;
+let chkbxCommentStatus = true;
 let displayCommentCount = 0;
 
 if(giftNoticeMode){
