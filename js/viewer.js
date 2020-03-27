@@ -12,10 +12,6 @@ if(giftNoticeMode){
     $('#chkGift').prop('checked', true);
     chkbxGiftStatus = true;
 }
-if(speechMode){
-    $('#chkSpeak').prop('checked', true);
-    chkbxSpeakStatus = true;
-}
 
 $('.inputRoomId').val(channelId);
 $('#versionArea').text(currentVer);
@@ -81,10 +77,6 @@ let noticeDraw = (text, type) => {
 
 let onAddDraw = (name) => {
     noticeDraw(name+'さんが入室しました。', 'onAdd');
-}
-
-let followDraw = (name) => {
-    noticeDraw(name+'さんがフォローしました。', 'follow');
 }
 
 let statusCheck = () => {
