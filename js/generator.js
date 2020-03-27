@@ -82,10 +82,6 @@ let onAddDraw = (name) => {
     if(onAddNoticeMode) renderText.push({'text': name+'さんが入室しました。', 'type': 'onAdd'});
 }
 
-let followDraw = (name) => {
-    if(followerNoticeMode) renderText.unshift({'text': name+'さんがフォローしました。', 'type': 'follow'});
-}
-
 let requestTextillate = (d) => {
     notificationArea.css('left', '110%');
     notificationArea.text(d.text);
@@ -93,9 +89,7 @@ let requestTextillate = (d) => {
     let goalLeft = 20;
     
     notificationArea.animate({ left: goalLeft }, 1000, 'swing', function () {
-        if(followerNoticeSound) {
-            if(d.type == 'follow') $('#soundFollow').get(0).play();
-        }
+        
         notificationArea.animate({ left: goalLeft }, 3000, 'swing', function () {
             notificationArea.fadeOut(200);
         });

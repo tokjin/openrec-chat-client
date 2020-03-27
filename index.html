@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OPENREC Chat Client - URL Generator</title>
+    <meta charset="UTF-8">
+    <link href="css/index.css" rel="stylesheet" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+    <h1 id="title-area">OPENREC Chat Client - URL Generator</h1>
+    <hr>
+    <div id="commentary-area">
+        OPENRECの放送画面に、コメントやエールの画面を流すことができるツールです。<br>
+        このツールは個人で開発しているものなので、ある日突然使えなくなる可能性があります。<br>
+        詳しい使い方については<a href="#">こちらのページ</a>をご覧ください。<br>
+        「こういう機能を付けてほしい」という方は気軽に相談して下さい。<br>
+    </div>
+    <br>
+    <div id="param-area">
+        <span id="option-text">設定</span><br>
+        <span class="param-text">https://www.openrec.tv/user/<input type="text" placeholder="チャンネルID" value="" class="inputBox" id="inp-channelId">※必須</span><br>
+        
+        <label><input id="chk-chatInUserName" class="chkbx" type="checkbox"><span class="chkbx-parts">流れるコメントに@名前を含める</span></label><br>
+
+        <label><input id="chk-chatColorMode" class="chkbx" type="checkbox"><span class="chkbx-parts">流れるコメントの色をユーザが設定した色にする</span></label><br>
+        
+        <span class="param-text2">コメントが流れる速度: <input type="text" placeholder="" value="7000" class="inputBox" id="inp-chatSpeed">※少ないほど早い</span><br>
+        
+        <span class="param-text2">コメントの最大表示文字数: <input type="text" placeholder="" value="30" class="inputBox" id="inp-chatLengthMax">※超えた分は省略して表示</span><br>
+        
+        <label><input id="chk-giftNoticeMode" class="chkbx" type="checkbox" checked><span class="chkbx-parts">エールがきたら画面上から降ってくる</span></label><br>
+        
+        <label><input id="chk-giftNoticeFeederMode" class="chkbx" type="checkbox" checked><span class="chkbx-parts">エールがきたら画面下に詳細が流れる</span></label><br>
+        
+        <span class="param-text2">エールが落ちる速度: <input type="text" placeholder="" value="5000" class="inputBox" id="inp-giftSpeed">※少ないほど早い</span><br>
+
+        <label><input id="chk-giftNoticeSound" class="chkbx" type="checkbox"><span class="chkbx-parts">エールが来た時に音を鳴らす</span></label><br>
+
+        <label><input id="chk-demoMode" class="chkbx" type="checkbox"><span class="chkbx-parts">デモモード</span></label>
+    </div>
+
+    <span class="output-text">OUTPUT URL</span>
+    <div id="output-area">
+        <input type="text" placeholder="" value="https://tokjin.github.io/openrec-chat-client/generator.html" class="outputBox" id="outputUrl"  onfocus="this.select();">
+    </div>
+    
+    <span class="preview-text">PREVIEW</span>
+    <div id="iframe-area">
+        <iframe src="./generator.html?demoMode=true&chatColorMode&chatInUserName" frameborder="1" width="1920" height="1080" style="transform:scale(0.25);-o-transform:scale(0.25);-webkit-transform:scale(0.25);-moz-transform:scale(0.25);-ms-transform:scale(0.25);transform-origin:0 0;-o-transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;" id="previewFrame"></iframe>
+    </div>
+    
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
