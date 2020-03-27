@@ -40,7 +40,7 @@ let copyText = () => {
     $('#outputUrl').select();
     document.execCommand('Copy');
     $('#copied-text').css('display', 'block');
-    $('#copied-text').animate({opacity: 1}, 500, 'linear', () => {
+    $('#copied-text').animate({opacity: 1}, 1000, 'linear', () => {
         $('#copied-text').fadeOut(2000);
     });
 }
