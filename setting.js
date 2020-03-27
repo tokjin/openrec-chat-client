@@ -26,16 +26,16 @@ const chatSpeed = parseInt(getParam('chatSpeed')) || 7000;
 const chatLengthMax = parseInt(getParam('chatLengthMax')) || 30;
 
 // ギフトを上から落とすかどうか
-const giftNoticeMode = getParam('giftNoticeMode') || true;
+const giftNoticeMode = getParam('giftNoticeMode') || false;
 
 // ギフトが来た時に画面下に通知をだすかどうか
-const giftNoticeFeederMode = getParam('giftNoticeFeederMode') || true;
+const giftNoticeFeederMode = getParam('giftNoticeFeederMode') || false;
 
 // ギフトが落ちる速度（少ないほど早い）
 const giftSpeed = parseInt(getParam('giftSpeed')) || 5000;
 
 // ギフトが来た時にサウンドを再生していいか
-const giftNoticeSound = getParam('giftNoticeSound') || true;
+const giftNoticeSound = getParam('giftNoticeSound') || false;
 
 // ビュワーでユーザーのアイコンを表示するかどうか
 const userIcon = getParam('userIcon') || true;

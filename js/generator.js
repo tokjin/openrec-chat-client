@@ -36,7 +36,7 @@ let giftDraw = (giftId, count, senderName, message) => {
         let randId = 'gift'+randText('Int', 8);
         let randWidth = Math.random() * 1000 + 0;
         let randHeight = Math.random() * 500 + 1280;
-        let giftSpeedFix = giftSpeed + (Math.random() * 2500);
+        let giftSpeedFix = giftSpeed + (Math.random() * 250);
         
         let insertTag = '<img src="'+giftUrl+'" id="'+randId+'" class="gift" style="bottom: '+randHeight+'px; left: '+randWidth+'px;">';
         $('.giftArea').append(insertTag);
@@ -54,6 +54,7 @@ let giftDraw = (giftId, count, senderName, message) => {
 }
 
 let chatDraw = (text, name, iconUrl, color, stamp) => {
+    
     let colorText = '';
     if(chatColorMode) colorText = 'color: '+color+' !important;';
     

@@ -10,7 +10,7 @@ class urlParam {
         this.giftNoticeMode = true;
         this.giftNoticeFeederMode = true;
         this.giftSpeed = 5000;
-        this.giftNoticeSound = true;
+        this.giftNoticeSound = false;
         this.demoMode = false;
     }
     reload() {
@@ -71,7 +71,7 @@ $('#chk-giftNoticeFeederMode').on('change', () => {
 });
 
 $('#inp-giftSpeed').on('change', () => {
-    outputUrl.giftSpeed = $('#inp-giftSpeed').val();
+    outputUrl.giftSpeed = parseInt($('#inp-giftSpeed').val());
     outputUrl.reload();
 });
 

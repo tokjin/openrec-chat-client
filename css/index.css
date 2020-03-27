@@ -29,7 +29,12 @@ div#param-area {
 }
 
 #commentary-area {
-    color: gainsboro;
+    color: #bebebe;
+}
+
+h3 {
+    color: white;
+    margin-bottom: 5px;
 }
 
 .outputBox {
