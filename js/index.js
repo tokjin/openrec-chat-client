@@ -14,10 +14,6 @@ class urlParam {
         this.demoMode = false;
     }
     reload() {
-        if(!this.channelId) {
-            $('#outputUrl').val('チャンネルIDは必須です');
-            return;
-        }
         let paramText = '?channelId='+this.channelId;
         if(this.chatInUserName) paramText += '&chatInUserName='+this.chatInUserName;
         if(this.chatColorMode) paramText += '&chatColorMode='+this.chatColorMode;
@@ -28,10 +24,12 @@ class urlParam {
         if(this.giftSpeed) paramText += '&giftSpeed='+this.giftSpeed;
         if(this.giftNoticeSound) paramText += '&giftNoticeSound='+this.giftNoticeSound;
         
-        $('#previewFrame').attr('src', baseUrl+paramText+'&demoMode=true')
+        $('#previewFrame').attr('src', baseUrl+paramText+'&demoMode=true&rnd='+Math.random());
         
         if(this.demoMode)paramText += '&demoMode='+this.demoMode;    
         $('#outputUrl').val(baseUrl+paramText);
+        
+        if(!this.channelId) $('#outputUrl').val('チャンネルIDは必須です');
     }
 }
 

@@ -130,13 +130,14 @@ let chatTest = (name, text, stamp, yell) => {
 let demoTexts = ["こんにちは","こんばんは","こんにちわ～","おじゃまします","やっほー","こんばんわ","今日は何のゲーム？","888888","うまい！","調子いいですね","今日は早いですね","めっちゃ早口だw","wwww","わろた","草","さすがに草","面白いですね","初見","初見です","やあやあ","はじめまして","おー","なるほど","これはすごい","ぬるぽ","テスト","コメント流れてる","てすとてすと","ツイッターもフォローしました","チャンネル登録しました","おばんどす","どうもありがとうございました。","おつかれさまです","おつかれさまでした","おつかれした"];
 let demoNames = ["えま","しおり","りお","はな","ほのか","あかり","ゆい","はるか","めい","りこ","みお","さき","かのん","かんな","あやか","かほ","さな","あんな","さえ","みのり","いちか","ゆう","さくら","なお","ゆうな","りん","ひな","あいり","なつき","かえで","ひかり","みゆ","さら","すみれ","ゆり","みさき","ひまり","みつき","かりん","なな","ももか","ふうか","ゆいか","ゆな","りな","りの","れいな","みれい","せな","まお","みう","ゆいな","ちひろ","つむぎ","ななみ","かな","はづき","みく","こはる","ひなこ","すず","えな","すずか","りおな","ゆうか","うた","かすみ","まい","まな","りんか","あん","なぎさ","ひより","りりか","あやね","ありさ","ことは","さやか","しほ","ちさ","りさ","りほ","いろは","みこと","ゆめ","あやの","さほ","みおり","あかね","さや","ともか","のぞみ","ゆき","れな","ちさと","あやな","まゆ","みづき","るな","わかな"];
 
-let demoModeStart = () => {
+let demoModeStart = (is_yell) => {
     let demoYell = 0, demoStamp = 0;
     let demoText = demoTexts[Math.floor(Math.random() * demoTexts.length)];
     let demoName = demoNames[Math.floor(Math.random() * demoNames.length)];
     let rnd = Math.floor(Math.random() * 100);
     if(rnd >= 98) demoYell = 179;
     else if(rnd >= 88) demoStamp = 1;
+    if(is_yell) demoYell = 179;
     
     chatTest(demoName, demoText, demoStamp, demoYell);
     
@@ -152,6 +153,7 @@ $(document).ready(function () {
     updateGiftList();
     if(demoMode) {
         setTimeout(demoModeStart, 1000);
+        setTimeout(chatTest, 1000, 'じん', '応援してます！', false, 179); // デモ用に確定でエールを表示
         wsDisconnect();
     }
     $(window).on("beforeunload", (e) => { wsDisconnect() });
