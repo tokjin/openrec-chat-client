@@ -10,7 +10,7 @@ class urlParam {
         this.giftNoticeMode = true;
         this.giftNoticeFeederMode = true;
         this.giftSpeed = 5000;
-        this.giftNoticeSound = true;
+        this.giftNoticeSound = false;
         this.demoMode = false;
     }
     reload() {
@@ -34,6 +34,16 @@ class urlParam {
 }
 
 let outputUrl = new urlParam();
+
+let copyText = () => {
+    if(!outputUrl.channelId) return;
+    $('#outputUrl').select();
+    document.execCommand('Copy');
+    $('#copied-text').css('display', 'block');
+    $('#copied-text').animate({opacity: 1}, 500, 'linear', () => {
+        $('#copied-text').fadeOut(2000);
+    });
+}
 
 $('#inp-channelId').on('change', () => {
     outputUrl.channelId = $('#inp-channelId').val();
@@ -71,7 +81,7 @@ $('#chk-giftNoticeFeederMode').on('change', () => {
 });
 
 $('#inp-giftSpeed').on('change', () => {
-    outputUrl.giftSpeed = $('#inp-giftSpeed').val();
+    outputUrl.giftSpeed = parseInt($('#inp-giftSpeed').val());
     outputUrl.reload();
 });
 
