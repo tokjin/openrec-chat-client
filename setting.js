@@ -8,6 +8,8 @@ let getParam = (name, url) => {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+const currentVer = 'v1.0.0';
+
 // OPENRECのチャンネルID(https://www.openrec.tv/user/*****)
 let channelId = getParam('channelId') || '';
 
@@ -18,16 +20,19 @@ const chatInUserName = getParam('chatInUserName') || false;
 const chatColorMode = getParam('chatColorMode') || false;
 
 // コメントが流れる速度（少ないほど早い） 
-const chatSpeed = getParam('chatSpeed') || 7000;
+const chatSpeed = parseInt(getParam('chatSpeed')) || 7000;
 
  // コメントの最大表示文字数
-const chatLengthMax = getParam('chatLengthMax') || 30;
+const chatLengthMax = parseInt(getParam('chatLengthMax')) || 30;
 
-// ギフトを画面に出すかどうか
+// ギフトを上から落とすかどうか
 const giftNoticeMode = getParam('giftNoticeMode') || true;
 
+// ギフトが来た時に画面下に通知をだすかどうか
+const giftNoticeFeederMode = getParam('giftNoticeFeederMode') || true;
+
 // ギフトが落ちる速度（少ないほど早い）
-const giftSpeed = getParam('giftSpeed') || 5000;
+const giftSpeed = parseInt(getParam('giftSpeed')) || 5000;
 
 // ギフトが来た時にサウンドを再生していいか
 const giftNoticeSound = getParam('giftNoticeSound') || true;
@@ -36,13 +41,7 @@ const giftNoticeSound = getParam('giftNoticeSound') || true;
 const userIcon = getParam('userIcon') || true;
 
 // コメントがこれ以上溜まり過ぎた時に重くならないように自動で削除
-const viewerMaxLine = getParam('viewerMaxLine') || 1000;
+const viewerMaxLine = parseInt(getParam('viewerMaxLine')) || 1000;
 
 // デモモード
 const demoMode = getParam('demoMode') || false;
-
-const giftNoticeFeederMode = true;  // ギフトが来た時に画面下に速報を出すかどうか
-const followerNoticeMode = true;    // フォロー通知を出すかどうか
-const followerNoticeSound = true;   // フォロー通知の際にサウンドを再生していいか
-const speechMode = false;           // ビュワーで読み上げを有効にするか
-const currentVer = 'v1.0.0';
