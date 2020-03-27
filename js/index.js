@@ -35,6 +35,16 @@ class urlParam {
 
 let outputUrl = new urlParam();
 
+let copyText = () => {
+    if(!outputUrl.channelId) return;
+    $('#outputUrl').select();
+    document.execCommand('Copy');
+    $('#copied-text').css('display', 'block');
+    $('#copied-text').animate({opacity: 1}, 500, 'linear', () => {
+        $('#copied-text').fadeOut(2000);
+    });
+}
+
 $('#inp-channelId').on('change', () => {
     outputUrl.channelId = $('#inp-channelId').val();
     outputUrl.reload();

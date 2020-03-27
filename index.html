@@ -16,7 +16,6 @@
         このツールは個人で開発しているものなので、ある日突然使えなくなる可能性があります。<br>
         詳しい使い方については<a href="#">こちらのページ</a>をご覧ください。<br>
         「こういう機能を付けてほしい」という方は気軽に相談して下さい。<br>
-        <br>
         <h3>株式会社ドワンゴの特許について</h3>
         株式会社ドワンゴの特許（特許第4695583、特許第4734471）は、<br>
         「コメントを、コメント付与時間と動画再生時間を用いてシンクロさせ、動画上に表示させる」装置の特許です。<br>
@@ -53,12 +52,15 @@
 
     <span class="output-text">OUTPUT URL</span>
     <div id="output-area">
-        <input type="text" placeholder="" value="https://tokjin.github.io/openrec-chat-client/generator.html" class="outputBox" id="outputUrl"  onfocus="this.select();">
+        <input type="text" placeholder="" value="ここにURLが発行されます" class="outputBox" id="outputUrl"  onfocus="copyText();">
+    </div>
+    <div id="copied-text">
+        コピーしました
     </div>
     
     <span class="preview-text">PREVIEW</span>
     <div id="iframe-area">
-        <iframe src="./generator.html?demoMode=true&chatColorMode&chatInUserName" frameborder="1" width="1920" height="1080" style="transform:scale(0.25);-o-transform:scale(0.25);-webkit-transform:scale(0.25);-moz-transform:scale(0.25);-ms-transform:scale(0.25);transform-origin:0 0;-o-transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;" id="previewFrame"></iframe>
+        <iframe src="./generator.html?channelId=a&chatSpeed=7000&chatLengthMax=30&giftNoticeMode=true&giftNoticeFeederMode=true&giftSpeed=5000&demoMode=true" frameborder="1" width="1920" height="1080" style="transform:scale(0.25);-o-transform:scale(0.25);-webkit-transform:scale(0.25);-moz-transform:scale(0.25);-ms-transform:scale(0.25);transform-origin:0 0;-o-transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;" id="previewFrame"></iframe>
     </div>
     
     <script src="js/jquery-3.4.1.min.js"></script>

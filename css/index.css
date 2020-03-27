@@ -7,6 +7,22 @@ a, a:visited {
     color: white;
 }
 
+#copied-text {
+    display: none;
+    position: fixed;
+    right: 500px;
+    bottom: 15px;
+    color: white;
+    background-color: #343145;
+    width: 220px;
+    height: 90px;
+    padding: 30px;
+    font-size: 22px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    z-index: 9999;
+}
+
 .param-text {
     padding-left: 10px;
 }
