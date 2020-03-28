@@ -2,7 +2,7 @@
 ////////////            宣言                  ///////////
 ////////////////////////////////////////////////////////
 
-let ws, socket, onairTitle, giftList;
+let ws, socket, onairTitle, onairChannel, giftList;
 let handshakeLoop, getMovieIdLoop;
 
 /////////////////////////////////////////////////////////
@@ -19,6 +19,7 @@ let startConnect = () => {
             if(val.onair_status == 1) {
                 onairId = val.movie_id;
                 onairTitle = val.title;
+                onairChannel = val.channel.name;
             }
         });
         if(onairId) {
@@ -184,13 +185,13 @@ let wsDisconnect = () => {
 
 let onOpen = (e) => {
     console.log('CONNECTED');
-    noticeDraw('[接続] '+onairTitle, 'open');
+    noticeDraw('[接続] '+onairChannel+'/'+onairTitle, 'open');
     handshakeLoop = setInterval(handshake, 25000)
 }
 
 let onClose = (e) => {
     console.log('DISCONNECTED');
-    noticeDraw('[切断] '+onairTitle, 'close');
+    noticeDraw('[切断] '+onairChannel+'/'+onairTitle, 'close');
     clearInterval(handshakeLoop);
 }
 
