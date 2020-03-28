@@ -20,4 +20,5 @@ OPENRECのコメントを放送画面に流したり、エールが届くと画�
 
 ### 問い合わせ
 [こちらのサイト](https://tokaisodachi.com/archives/2295)で詳しい使用方法を解説しております。
+
 他、不明な点や追加してほしい機能などがあれば、気軽に[Twitter](https://twitter.com/jintokai)までご連絡ください。
