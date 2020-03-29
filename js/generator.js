@@ -85,7 +85,7 @@ let onAddDraw = (name) => {
 
 let requestTextillate = (d) => {
     notificationArea.css('left', '110%');
-    notificationArea.text(d.text);
+    notificationArea.html(d.text);
     notificationArea.css('display', 'block');
     let goalLeft = 20;
     
