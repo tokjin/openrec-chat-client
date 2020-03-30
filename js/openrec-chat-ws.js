@@ -101,7 +101,7 @@ let chatTest = (name, text, stamp, yell) => {
         "message": text,
         "cre_dt": "2020-03-25 18:46:54",
         "message_dt": "2020-03-25 18:46:54",
-        "is_fresh": 0,
+        "is_fresh": 1,
         "is_warned": 0,
         "is_moderator": 0,
         "is_premium": 1,
@@ -126,15 +126,6 @@ let chatTest = (name, text, stamp, yell) => {
     
     let messageJson = new Comment(provJson);
     messageJson.push();
-}
-
-let unescapeHtml = (target) => {
-    if (typeof target !== 'string') return target;
-    let patterns = {'&lt;'   : '<', '&gt;'   : '>', '&amp;'  : '&', '&quot;' : '"', '&#x27;' : '\'', '&#x60;' : '`'}
- 
-    return target.replace(/&(lt|gt|amp|quot|#x27|#x60);/g, (match) => {
-        return patterns[match];
-    });
 }
 
 let demoTexts = ["こんにちは","こんばんは","こんにちわ～","おじゃまします","やっほー","こんばんわ","今日は何のゲーム？","888888","うまい！","調子いいですね","今日は早いですね","めっちゃ早口だw","wwww","わろた","草","さすがに草","面白いですね","初見","初見です","やあやあ","はじめまして","おー","なるほど","これはすごい","ぬるぽ","テスト","コメント流れてる","てすとてすと","ツイッターもフォローしました","チャンネル登録しました","おばんどす","どうもありがとうございました。","おつかれさまです","おつかれさまでした","おつかれした"];
@@ -272,9 +263,9 @@ let handshake = () => {
 
 class Comment {
     constructor(json) {
-      this.user_name = unescapeHtml(json.user_name);
+      this.user_name = json.user_name;
       this.user_identify_id = json.user_identify_id;
-      this.message = unescapeHtml(json.message);
+      this.message = json.message;
       this.message_dt = json.message_dt;
       this.is_fresh = json.is_fresh;
       this.is_warned = json.is_warned;
