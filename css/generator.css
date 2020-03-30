@@ -16,6 +16,14 @@ img.mark {
     position: fixed;
 }
 
+.versionArea {
+    position: fixed;
+    right: 10px;
+    bottom: 5px;
+    opacity: 0.8;
+    font-size: 12px;
+}
+
 .iconSize {
     height: 60px;
 }

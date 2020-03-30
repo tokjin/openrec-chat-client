@@ -107,6 +107,13 @@ let checkFunc = () => {
     }
 }
 
+let versionDisplay = () => {    
+    $('.versionArea').text(currentVer);
+    setTimeout(()=>{    
+        $('.versionArea').fadeOut(1000);
+    }, 2000);
+}
+
 /////////////////////////////////////////////////////////
 ////////////            メイン処理            ////////////
 ////////////////////////////////////////////////////////
@@ -114,5 +121,6 @@ let checkFunc = () => {
 $(document).ready(function () {
     mainLoop = setInterval(checkFunc, 1000);
     startConnect(channelId);
+    versionDisplay();
 });
 
