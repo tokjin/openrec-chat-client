@@ -23,6 +23,9 @@ class urlParam {
         if(this.giftNoticeFeederMode) paramText += '&giftNoticeFeederMode='+this.giftNoticeFeederMode;
         if(this.giftSpeed) paramText += '&giftSpeed='+this.giftSpeed;
         if(this.giftNoticeSound) paramText += '&giftNoticeSound='+this.giftNoticeSound;
+        let d = new Date();
+        let t = Math.floor(d.getTime()/1000);
+        paramText += '&t='+t;
         
         $('#previewFrame').attr('src', baseUrl+paramText+'&demoMode=true&rnd='+Math.random());
         
