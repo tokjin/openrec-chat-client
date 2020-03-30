@@ -1,4 +1,4 @@
-# openrec-chat-client v1.0.0
+# openrec-chat-client v1.0.3
 
 ![trimOPENREC](https://user-images.githubusercontent.com/41167277/77768287-9ae6ce00-7085-11ea-9f92-092b7985a39a.gif)
 
@@ -16,7 +16,8 @@ OPENRECのコメントを放送画面に流したり、エールが届くと画�
 
 ### おまけ
 * 副産物として[コメントビュワー](https://tokjin.github.io/openrec-chat-client/viewer.html)ができました。
-* generator.htmlと同様にパラメーターを渡すと、demoModeに入ることができます。
+* viewerにdemoMode=trueと渡すと、demoModeに入ることができます。
+* viewerにAutoStart=trueと渡すと、起動時に自動で接続を開始します。
 
 ### 問い合わせ
 [こちらのサイト](https://tokaisodachi.com/archives/2295)で詳しい使用方法を解説しております。
