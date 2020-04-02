@@ -1,4 +1,4 @@
-# openrec-chat-client v1.0.3
+# openrec-chat-client v1.0.4
 
 ![trimOPENREC](https://user-images.githubusercontent.com/41167277/77768287-9ae6ce00-7085-11ea-9f92-092b7985a39a.gif)
 
@@ -21,5 +21,7 @@ OPENRECのコメントを放送画面に流したり、エールが届くと画�
 
 ### 問い合わせ
 [こちらのサイト](https://tokaisodachi.com/archives/2295)で詳しい使用方法を解説しております。
+
+Issuesやプルリク気軽にして下さい。ただ私はエンジニアではないので期待に沿えるかはわかりません…！！
 
 他、不明な点や追加してほしい機能などがあれば、気軽に[Twitter](https://twitter.com/jintokai)までご連絡ください。

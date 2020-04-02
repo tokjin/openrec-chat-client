@@ -256,6 +256,9 @@ let handshake = () => {
     console.log('handshake');
 }
 
+let removeHtml = (str) => {
+    return str.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+}
 
 /////////////////////////////////////////////////////
 ////////////            class            ////////////
@@ -263,9 +266,9 @@ let handshake = () => {
 
 class Comment {
     constructor(json) {
-      this.user_name = json.user_name;
+      this.user_name = removeHtml(json.user_name);
       this.user_identify_id = json.user_identify_id;
-      this.message = json.message;
+      this.message = removeHtml(json.message);
       this.message_dt = json.message_dt;
       this.is_fresh = json.is_fresh;
       this.is_warned = json.is_warned;

@@ -83,13 +83,10 @@ let onAddDraw = (name) => {
     if(onAddNoticeMode) renderText.push({'text': name+'さんが入室しました。', 'type': 'onAdd'});
 }
 
-let removeHtml = (str) => {
-    return str.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
-}
 
 let requestTextillate = (d) => {
     notificationArea.css('left', '110%');
-    notificationArea.text(removeHtml(d.text));
+    notificationArea.text(d.text);
     notificationArea.css('display', 'block');
     let goalLeft = 20;
     
