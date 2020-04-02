@@ -8,7 +8,7 @@ let getParam = (name, url) => {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-const currentVer = 'v1.0.4';
+const currentVer = 'v1.0.5';
 
 // OPENRECのチャンネルID(https://www.openrec.tv/user/*****)
 let channelId = getParam('channelId') || '';
@@ -22,8 +22,11 @@ const chatColorMode = getParam('chatColorMode') || false;
 // コメントが流れる速度（少ないほど早い） 
 const chatSpeed = parseInt(getParam('chatSpeed')) || 7000;
 
- // コメントの最大表示文字数
+ // 流れるコメントの最大表示文字数
 const chatLengthMax = parseInt(getParam('chatLengthMax')) || 30;
+
+ // 流れるコメントの大きさ
+const chatSize = parseInt(getParam('chatSize')) || 60;
 
 // ギフトを上から落とすかどうか
 const giftNoticeMode = getParam('giftNoticeMode') || false;

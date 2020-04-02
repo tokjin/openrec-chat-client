@@ -65,7 +65,7 @@ let chatDraw = (text, name, iconUrl, color, stamp) => {
     }
 
     if(chatInUserName) text = text + '@' + name
-    let insertTag = '<div id="'+randId+'" class="chat" style="display: none; left: 1920px; top: '+randHeight+'px;'+colorText+'">'+text+'</div>';
+    let insertTag = '<div id="'+randId+'" class="chat" style="display: none; left: 1920px; top: '+randHeight+'px; font-size: '+chatSize+'px;'+colorText+'">'+text+'</div>';
     $('.chatArea').append(insertTag);
     
     $('#'+randId).css('display','block');
@@ -86,7 +86,7 @@ let onAddDraw = (name) => {
 
 let requestTextillate = (d) => {
     notificationArea.css('left', '110%');
-    notificationArea.text(d.text);
+    notificationArea.text(removeHtml(d.text));
     notificationArea.css('display', 'block');
     let goalLeft = 20;
     
