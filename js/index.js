@@ -65,6 +65,12 @@ $('#chk-chatColorMode').on('change', () => {
     outputUrl.reload();
 });
 
+$('#inp-chatSize').on('change', () => {
+    outputUrl.chatSize = $('#inp-chatSize').val();
+    outputUrl.reload();
+});
+
+
 $('#inp-chatSpeed').on('change', () => {
     outputUrl.chatSpeed = $('#inp-chatSpeed').val();
     outputUrl.reload();
