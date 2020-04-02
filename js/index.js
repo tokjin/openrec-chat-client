@@ -5,6 +5,7 @@ class urlParam {
         this.channelId = '';
         this.chatInUserName = false;
         this.chatColorMode = false;
+        this.chatSize = 60;
         this.chatSpeed = 7000;
         this.chatLengthMax = 30;
         this.giftNoticeMode = true;
@@ -17,6 +18,7 @@ class urlParam {
         let paramText = '?channelId='+this.channelId;
         if(this.chatInUserName) paramText += '&chatInUserName='+this.chatInUserName;
         if(this.chatColorMode) paramText += '&chatColorMode='+this.chatColorMode;
+        if(this.chatSize) paramText += '&chatSize='+this.chatSize;
         if(this.chatSpeed) paramText += '&chatSpeed='+this.chatSpeed;
         if(this.chatLengthMax) paramText += '&chatLengthMax='+this.chatLengthMax;
         if(this.giftNoticeMode) paramText += '&giftNoticeMode='+this.giftNoticeMode;
