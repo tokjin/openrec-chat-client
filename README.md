@@ -1,4 +1,4 @@
-# openrec-chat-client v1.0.5
+# openrec-chat-client
 
 ![trimOPENREC](https://user-images.githubusercontent.com/41167277/77768287-9ae6ce00-7085-11ea-9f92-092b7985a39a.gif)
 
