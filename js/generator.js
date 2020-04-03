@@ -69,7 +69,9 @@ let chatDraw = (text, name, iconUrl, color, stamp) => {
     $('.chatArea').append(insertTag);
     
     $('#'+randId).css('display','block');
-    $('#'+randId).animate({ left: -1920 }, chatSpeed, 'linear', function () {
+    let tagWidth = parseInt($('#'+randId).css('width'));
+    let goalTime = chatSpeed / 1.8; // 過去のVerとの互換の調整
+    $('#'+randId).animate({ left: -tagWidth }, goalTime, 'linear', function () {
         $('#'+randId).remove();
     });
 }
