@@ -28,6 +28,7 @@ class urlParam {
         let d = new Date();
         let t = Math.floor(d.getTime()/1000);
         paramText += '&t='+t;
+        paramText += '&v='+currentVer.replace(/[^0-9]/g, '');
         
         $('#previewFrame').attr('src', baseUrl+paramText+'&demoMode=true&rnd='+Math.random());
         
