@@ -291,9 +291,8 @@ class Comment {
         if(this.is_fresh) this.user_name += '<img src="'+svgUrlBase+'/begginer.svg" class="mark">';
         if(this.is_warned) this.user_name += '<img src="'+svgUrlBase+'/warned.svg" class="mark">';
         
-        if(this.stamp) chatDraw('<img src="'+this.stamp.image_url+'" class="stamp">', this.user_name, this.user_icon, this.user_color, true);
-        else if(this.yell) giftDraw(this.yell.yell_id, 1, this.user_name, this.message);
-        else chatDraw(this.message, this.user_name, this.user_icon, this.user_color);
+        if(this.yell) giftDraw(this.yell.yell_id, 1, this.user_name, this.message, this.stamp);
+        else chatDraw(this.message, this.user_name, this.user_icon, this.user_color, this.stamp);
         
         return;
     }

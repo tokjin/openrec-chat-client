@@ -6,6 +6,7 @@ class urlParam {
         this.chatInUserName = false;
         this.chatColorMode = false;
         this.chatSize = 60;
+        this.stampSize = 128;
         this.chatSpeed = 7000;
         this.chatLengthMax = 30;
         this.giftNoticeMode = true;
@@ -19,6 +20,7 @@ class urlParam {
         if(this.chatInUserName) paramText += '&chatInUserName='+this.chatInUserName;
         if(this.chatColorMode) paramText += '&chatColorMode='+this.chatColorMode;
         if(this.chatSize) paramText += '&chatSize='+this.chatSize;
+        if(this.stampSize) paramText += '&stampSize='+this.stampSize;
         if(this.chatSpeed) paramText += '&chatSpeed='+this.chatSpeed;
         if(this.chatLengthMax) paramText += '&chatLengthMax='+this.chatLengthMax;
         if(this.giftNoticeMode) paramText += '&giftNoticeMode='+this.giftNoticeMode;
@@ -28,6 +30,7 @@ class urlParam {
         let d = new Date();
         let t = Math.floor(d.getTime()/1000);
         paramText += '&t='+t;
+        paramText += '&v='+currentVer.replace(/[^0-9]/g, '');
         
         $('#previewFrame').attr('src', baseUrl+paramText+'&demoMode=true&rnd='+Math.random());
         
@@ -70,6 +73,10 @@ $('#inp-chatSize').on('change', () => {
     outputUrl.reload();
 });
 
+$('#inp-stampSize').on('change', () => {
+    outputUrl.stampSize = $('#inp-stampSize').val();
+    outputUrl.reload();
+});
 
 $('#inp-chatSpeed').on('change', () => {
     outputUrl.chatSpeed = $('#inp-chatSpeed').val();

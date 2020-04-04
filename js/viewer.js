@@ -43,7 +43,7 @@ let giftDraw = (giftId, count, senderName, message) => {
     statusCheck();
 }
 
-let chatDraw = (text, name, img, color) => {
+let chatDraw = (text, name, iconUrl, color, stamp) => {
     displayCommentCount++;
     if(displayCommentCount >= viewerMaxLine) {
         displayCommentCount = 1;
@@ -53,8 +53,10 @@ let chatDraw = (text, name, img, color) => {
     if(!color) color = "black";
     speechText(text, 'comment');
     
+    if(stamp) text = '<img src="'+stamp.image_url+'" class="stamp">';
+    
     let insertTag = '';
-    if(userIcon) insertTag = '<div class="chat comment"><div id="name" style="color: '+color+';"><img src="'+img+'" class="iconSize"> '+name+'</div><div id="text">'+text+'</div></div>';
+    if(userIcon) insertTag = '<div class="chat comment"><div id="name" style="color: '+color+';"><img src="'+iconUrl+'" class="iconSize"> '+name+'</div><div id="text">'+text+'</div></div>';
     else insertTag = '<div class="chat comment"><div id="name">'+name+'</div><div id="text">'+text+'</div></div>';
     
     drawArea.append(insertTag);

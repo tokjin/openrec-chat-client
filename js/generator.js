@@ -60,7 +60,9 @@ let chatDraw = (text, name, iconUrl, color, stamp) => {
     
     let randId = 'chat'+randText('Int', 8);
     let randHeight = Math.random() * 1000;
-    if(!stamp){
+    
+    if(stamp) text = '<img src="'+stamp.image_url+'" class="stamp" style="width: '+stampSize+'px;">';
+    else {
         if(text.length >= chatLengthMax) text = text.substr(0, chatLengthMax-2)+'...';
     }
 
