@@ -210,7 +210,7 @@ img.stamp {
 #viewCountArea {
     display: none;
     left: 300px;
-    position: absolute;
+    position: fixed;
     z-index: 4;
 }
 
