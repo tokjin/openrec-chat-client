@@ -14,7 +14,6 @@
             <input type="text" placeholder="" value="" class="inputRoomId">
             <a href="#" id="startBtn" class="btn-flat-border">START</a>
             <a href="#" id="stopBtn" class="btn-flat-border" style="display: none;">STOP</a>
-            <span id="viewCount" class="viewCountArea"></span>
         </span>
         
         <span class="HeaderRight">
@@ -31,14 +30,15 @@
         </span>
     </div>
     <div id="versionArea"></div>
-    <div class="adArea">
-        <a target="_blank" href="https://www.openrec.tv/user/tokaisodachi" style="color: gainsboro;">[とかい育ちチャンネル]</a>
+    <div id="viewCountArea">
+        <img src="./assets/people.svg" class="svgIcon"><span id="liveViewCount"></span>
+        <img src="./assets/eye.svg" class="svgIcon"><span id="viewCount"></span>
     </div>
 
     <div class="drawArea"></div>
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="setting.js?200404"></script>
-    <script src="js/openrec-chat-ws.js?200404"></script>
-    <script src="js/viewer.js?200404"></script>
+    <script src="setting.js?200422"></script>
+    <script src="js/openrec-chat-ws.js?200422"></script>
+    <script src="js/viewer.js?200422"></script>
 </body>
 </html>

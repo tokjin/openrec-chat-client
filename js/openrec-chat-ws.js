@@ -225,6 +225,13 @@ let onMessage = (e) => {
 
             } else if (json.type == 1) {
                 // 同時接続数と視聴数
+                try {
+                    viwerCount(json.data);
+                    
+                } catch(e) {
+                    // v1.0.7以下はエラー
+                    console.log(e);
+                }
                 
             } else if (json.type == 3) {
                 // 生放送が終了
