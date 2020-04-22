@@ -202,6 +202,31 @@ img.stamp {
     opacity: 0.5;
     color: black;
 }
+.svgIcon {
+    width: 24px;
+    vertical-align: sub;
+}
+
+#viewCountArea {
+    display: none;
+    left: 300px;
+    position: absolute;
+    z-index: 4;
+}
+
+#liveViewCount {
+    color: rgb(223, 86, 86);
+    font-size: 21px;
+    font-weight: bold;
+    padding: 3px;
+}
+
+#viewCount {
+    color: rgb(245, 242, 242);
+    font-size: 21px;
+    font-weight: bold;
+    padding: 3px;
+}
 
 .adArea {
     left: 310px;

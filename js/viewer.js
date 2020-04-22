@@ -77,6 +77,13 @@ let noticeDraw = (text, type) => {
     statusCheck();
 }
 
+let viwerCount = (json) => {
+    console.log('viwerCount',json)
+    $('#viewCountArea').css('display', 'block');
+    $('#liveViewCount').text(json.live_viewers);
+    $('#viewCount').text(json.viewers);
+}
+
 let onAddDraw = (name) => {
     noticeDraw(name+'さんが入室しました。', 'onAdd');
 }
@@ -137,11 +144,8 @@ $('#stopBtn').on('click', () => {
     wsDisconnect();
     $('#stopBtn').css('display', 'none');
     $('#startBtn').css('display', 'inline-block');
+    $('#viewCountArea').css('display', 'none');
 });
-
-$('.adArea').on('click', () => {
-    $('.adArea').remove();
-})
 
 $('#chkComment').on('change', () => {
     chkbxCommentStatus = $('#chkComment').prop('checked');

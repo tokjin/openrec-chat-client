@@ -8,7 +8,7 @@ let getParam = (name, url) => {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-const currentVer = 'v1.0.7';
+const currentVer = 'v1.0.8';
 
 // OPENRECのチャンネルID(https://www.openrec.tv/user/*****)
 let channelId = getParam('channelId') || '';
