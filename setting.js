@@ -8,7 +8,7 @@ let getParam = (name, url) => {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-const currentVer = 'v1.0.8';
+const currentVer = 'v1.0.9';
 
 // OPENRECのチャンネルID(https://www.openrec.tv/user/*****)
 let channelId = getParam('channelId') || '';
@@ -43,11 +43,24 @@ const giftSpeed = parseInt(getParam('giftSpeed')) || 5000;
 // ギフトが来た時にサウンドを再生していいか
 const giftNoticeSound = getParam('giftNoticeSound') || false;
 
+// デモモード
+const demoMode = getParam('demoMode') || false;
+
+//////////////////////////////////////////////////////
+/*  ここから下はコメントビュワー(viewer.html)の設定です   */
+//////////////////////////////////////////////////////
+
 // ビュワーでユーザーのアイコンを表示するかどうか
 const userIcon = getParam('userIcon') || true;
 
-// コメントがこれ以上溜まり過ぎた時に重くならないように自動で削除
-const viewerMaxLine = parseInt(getParam('viewerMaxLine')) || 1000;
+// ビュワーを起動時に自動で接続を開始するかどうか
+const autoStart = getParam('AutoStart') || false;
 
-// デモモード
-const demoMode = getParam('demoMode') || false;
+// ビュワーを起動時に読み上げをONにするかどうか
+const speechMode = getParam('speechMode') || false;
+
+// ビュワーの読み上げ機能を棒読みちゃんに対応（新着コメントをクリップボードにコピー）
+const clipboard = getParam('clipboard') || false;
+
+// ビュワーでコメントがこれ以上溜まり過ぎた時に重くならないように自動で削除
+const viewerMaxLine = parseInt(getParam('viewerMaxLine')) || 1000;

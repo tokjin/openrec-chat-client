@@ -13,6 +13,15 @@ if(giftNoticeMode){
     chkbxGiftStatus = true;
 }
 
+if(speechMode){
+    $('#chkSpeak').prop('checked', true);
+    chkbxSpeakStatus = true;
+}
+
+if(clipboard){
+    $('#speak-text').text('読み上げ（クリップボード）');
+}
+
 $('.inputRoomId').val(channelId);
 $('#versionArea').text(currentVer);
 
@@ -96,6 +105,7 @@ let statusCheck = () => {
 
 let speechText = (text, type) => {
     if(!chkbxSpeakStatus) return;
+    
     switch(type){
         case 'comment':
             if(!chkbxCommentStatus) return;
@@ -114,6 +124,17 @@ let speechText = (text, type) => {
             break;
     }
     
+    if(clipboard){
+        let tempInput = document.createElement('input');
+        tempInput.setAttribute('id', 'copyinput');
+        document.body.appendChild(tempInput);
+        tempInput.value = text;
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        return;
+    }
+    
     let ssu = new SpeechSynthesisUtterance(text);
     ssu.lang = 'ja-JP';
     ssu.rate = 1.5;
@@ -126,7 +147,7 @@ let speechText = (text, type) => {
 ////////////////////////////////////////////////////////
 
 $(document).ready(function () {
-    if(getParam('AutoStart')) $('#startBtn').click();
+    if(autoStart) $('#startBtn').click();
 });
 
 /////////////////////////////////////////////////////////
