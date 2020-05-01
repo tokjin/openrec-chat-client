@@ -18,12 +18,26 @@ if(speechMode){
     chkbxSpeakStatus = true;
 }
 
-if(clipboard){
-    $('#speak-text').text('読み上げ（クリップボード）');
+if(bouyomi){
+    $('#speak-text').text('読み上げ（棒読みちゃん）');
+    bouyomi = true;
 }
 
 $('.inputRoomId').val(channelId);
 $('#versionArea').text(currentVer);
+
+// 棒読みちゃん連携(WebSocketプラグインが必要)
+// 棒読みちゃん連携を使う場合はローカル環境で開く必要があります。
+let bouyomi;
+let bouyomiSend = (text) => {
+    let bouyomiUri = 'ws://localhost:50002';
+    let bouyomiWs = new WebSocket(bouyomiUri);
+    bouyomiWs.onopen = (e) => {
+        let d = "<bouyomi>", speed = -1, pitch = -1, volume = -1, type = 0;
+        let sends = ""+speed+d+pitch+d+volume+d+type+d+text;
+        bouyomiWs.send(sends);
+    };
+}
 
 /////////////////////////////////////////////////////////
 ////////////            function             ////////////
@@ -124,14 +138,8 @@ let speechText = (text, type) => {
             break;
     }
     
-    if(clipboard){
-        let tempInput = document.createElement('input');
-        tempInput.setAttribute('id', 'copyinput');
-        document.body.appendChild(tempInput);
-        tempInput.value = text;
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
+    if(bouyomi){
+        bouyomiSend(text);
         return;
     }
     
@@ -187,4 +195,3 @@ $('#chkSpeak').on('change', () => {
 $('#chkScroll').on('change', () => {
     chkbxScrollStatus = $('#chkScroll').prop('checked');
 });
-
