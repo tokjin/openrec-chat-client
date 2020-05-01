@@ -16,8 +16,8 @@ OPENRECのコメントを放送画面に流したり、エールが届くと画�
 
 ### おまけ
 * 副産物として[コメントビュワー](https://tokjin.github.io/openrec-chat-client/viewer.html)ができました。
-* viewerにdemoMode=trueと渡すと、demoModeに入ることができます。
 * viewerにAutoStart=trueと渡すと、起動時に自動で接続を開始します。
+* viewerにbouyomi=trueと渡すと、棒読みちゃん連携ができます。（棒読みちゃんに[WebSocketプラグイン](https://github.com/chocoa/BouyomiChan-WebSocket-Plugin)の導入が必要。更にローカル環境で実行する必要があるので、ダウンロードしてお使いください）
 
 ### 問い合わせ
 [こちらのサイト](https://tokaisodachi.com/archives/2295)で詳しい使用方法を解説しております。
