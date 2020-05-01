@@ -59,8 +59,8 @@ const autoStart = getParam('AutoStart') || false;
 // ビュワーを起動時に読み上げをONにするかどうか
 const speechMode = getParam('speechMode') || false;
 
-// ビュワーの読み上げ機能を棒読みちゃんに対応（新着コメントをクリップボードにコピー）
-const clipboard = getParam('clipboard') || false;
+// ビュワーの読み上げ機能を棒読みちゃんに対応（WebSocketプラグインが必要/ローカル環境で実行する必要あり）
+const bouyomi = getParam('bouyomi') || false;
 
 // ビュワーでコメントがこれ以上溜まり過ぎた時に重くならないように自動で削除
 const viewerMaxLine = parseInt(getParam('viewerMaxLine')) || 1000;
