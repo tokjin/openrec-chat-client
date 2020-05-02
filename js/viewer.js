@@ -20,7 +20,6 @@ if(speechMode){
 
 if(bouyomi){
     $('#speak-text').text('読み上げ（棒読みちゃん）');
-    bouyomi = true;
 }
 
 $('.inputRoomId').val(channelId);
@@ -28,7 +27,6 @@ $('#versionArea').text(currentVer);
 
 // 棒読みちゃん連携(WebSocketプラグインが必要)
 // 棒読みちゃん連携を使う場合はローカル環境で開く必要があります。
-let bouyomi;
 let bouyomiSend = (text) => {
     let bouyomiUri = 'ws://localhost:50002';
     let bouyomiWs = new WebSocket(bouyomiUri);
